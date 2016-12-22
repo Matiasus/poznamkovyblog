@@ -1,2 +1,2 @@
 # poznamkovyblog
-Php
+Php - simple framework
