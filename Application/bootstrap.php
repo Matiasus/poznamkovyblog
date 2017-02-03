@@ -35,39 +35,34 @@
 
     // Vytvorenie objektu triedy Autoloader 
     $autoload = new Autoloader();
-
     // Vytvorenie registra
     $registry = new \Vendor\Registry\Registry;
-
     // Vytvorenie hlasenia a spracovania chyb
     $registry->errors = '\Vendor\Errors\Errors';
     // Vytvorenie objektu Session na ukladanie docasnych flash sprav
     $registry->session = '\Vendor\Session\Session';
     // Vytvorenie objektu Cookie na ukladanie docasnych flash sprav
     $registry->cookie = '\Vendor\Cookie\Cookie';
-	  // Vytvorenie objektu Cookie na ukladanie docasnych flash sprav
-	  $registry->javascript = '\Vendor\Javascript\Javascript';
+    // Vytvorenie objektu Cookie na ukladanie docasnych flash sprav
+    $registry->javascript = '\Vendor\Javascript\Javascript';
     // Vytvorenie objektu Mysql pre pracu s databazou
     $registry->mysql = '\Vendor\Mysql\Mysql';
     // Vytvorenie spojenia podla dsn
     $registry->mysql->connect('connection'
-               , DSN
-               , NAME
-               , PAS
-               , array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
-               );
+                             , DSN
+                             , NAME
+                             , PAS
+                             , array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
+                             );
 
     // Vytvorenie objektu routovania
     $registry->route = '\Vendor\Route\Route';
     // Rozklad url adrsu do modulov (ak su pritomne), kontorlera, pohladu a parametrov (ak su pritomne)
     $registry->route->getExplodedUrl();
-
     // Vytvorenie objektu uzivatela
     $registry->user = '\Vendor\User\User';
-
     //Vytvorenie objektu kontrolera
     $registry->controller = '\Vendor\Controller\Controller';
-
     // Vytvorenie objektu sablony
     $registry->template = '\Vendor\Template\Template';
 
@@ -81,7 +76,7 @@
     $template->set('title', 'ERROR');
     // nastavenie obsahu
     $template->set('body', $exception->getMessage());
-    // vypis
+    // render
     $template->render();
   }
 
