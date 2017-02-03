@@ -49,8 +49,8 @@
     */
     public function __get($key)
     {
-      if (isset($this->objects[$key]))
-      {
+      if (isset($this->objects[$key])) {
+        // return object
         return $this->objects[$key];
       }
     }
